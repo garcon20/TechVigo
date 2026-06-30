@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fee Notice — Kwofie Essuman Eugene</title>
+<style>
+  :root{
+    --ink:#1c2b27;
+    --paper:#f6f3ec;
+    --accent:#0f6b4c;
+    --accent-soft:#dcecdf;
+    --line:#cfc7b3;
+    --gold:#b88a2e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Georgia','Iowan Old Style',serif;
+    line-height:1.5;
+    padding:24px 16px 60px;
+  }
+  .sheet{
+    max-width:640px;
+    margin:0 auto;
+    background:#fffdf8;
+    border:1px solid var(--line);
+    border-radius:6px;
+    overflow:hidden;
+    box-shadow:0 1px 3px rgba(0,0,0,0.06);
+  }
+  .band{
+    background:var(--accent);
+    color:#fff;
+    padding:22px 24px;
+  }
+  .band .eyebrow{
+    font-family:'Helvetica Neue',Arial,sans-serif;
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    opacity:0.85;
+  }
+  .band h1{
+    font-size:22px;
+    margin-top:6px;
+    font-weight:600;
+  }
+  .meta{
+    font-family:'Helvetica Neue',Arial,sans-serif;
+    font-size:13px;
+    color:#eef7f1;
+    margin-top:10px;
+    opacity:0.9;
+  }
+  .body{padding:24px;}
+  .institution{
+    font-family:'Helvetica Neue',Arial,sans-serif;
+    font-size:13px;
+    color:#5b6a64;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    border-bottom:1px solid var(--line);
+    padding-bottom:14px;
+    margin-bottom:18px;
+  }
+  .institution strong{
+    display:block;
+    color:var(--ink);
+    font-size:16px;
+    font-family:Georgia,serif;
+    text-transform:none;
+    letter-spacing:0;
+    margin-top:4px;
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px 20px;
+    margin-bottom:22px;
+  }
+  .field label{
+    display:block;
+    font-family:'Helvetica Neue',Arial,sans-serif;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:#8a8270;
+    margin-bottom:3px;
+  }
+  .field .val{
+    font-size:15px;
+    color:var(--ink);
+  }
+  .field.full{grid-column:1 / -1;}
+  .divider{
+    height:1px;
+    background:var(--line);
+    margin:20px 0;
+  }
+  .course-block{
+    background:var(--accent-soft);
+    border-radius:6px;
+    padding:16px 18px;
+    margin-bottom:22px;
+  }
+  .course-block .label{
+    font-family:'Helvetica Neue',Arial,sans-serif;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:#3f5f52;
+    margin-bottom:4px;
+  }
+  .course-block .name{
+    font-size:17px;
+    font-weight:bold;
+    color:var(--accent);
+  }
+  .course-block .sub{
+    font-size:14px;
+    color:#3f5f52;
+    margin-top:4px;
+  }
+  .amount-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:10px;
+    padding:18px 0;
+    border-top:1px dashed var(--line);
+    border-bottom:1px dashed var(--line);
+    margin-bottom:22px;
+  }
+  .amount-label{
+    font-family:'Helvetica Neue',Arial,sans-serif;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:#8a8270;
+  }
+  .amount-main{
+    font-size:30px;
+    color:var(--accent);
+    font-weight:bold;
+  }
+  .amount-sub{
+    font-size:15px;
+    color:#8a8270;
+  }
+  .due{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background:#fbeee0;
+    border:1px solid #ecd3ab;
+    border-radius:6px;
+    padding:12px 16px;
+    margin-bottom:22px;
+    font-family:'Helvetica Neue',Arial,sans-serif;
+  }
+  .due .dot{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--gold);
+    flex-shrink:0;
+  }
+  .due-text strong{color:var(--gold);}
+  .payment{
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:16px 18px;
+    margin-bottom:8px;
+  }
+  .payment h3{
+    font-size:14px;
+    font-family:'Helvetica Neue',Arial,sans-serif;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:var(--accent);
+    margin-bottom:10px;
+  }
+  .payment p{
+    font-size:14px;
+    color:#444;
+    font-family:'Helvetica Neue',Arial,sans-serif;
+    line-height:1.6;
+  }
+  .note{
+    font-size:12px;
+    color:#8a8270;
+    font-family:'Helvetica Neue',Arial,sans-serif;
+    margin-top:18px;
+    font-style:italic;
+  }
+  footer{
+    text-align:center;
+    font-family:'Helvetica Neue',Arial,sans-serif;
+    font-size:11px;
+    color:#8a8270;
+    margin-top:18px;
+    letter-spacing:0.5px;
+  }
+
+  /* Hero graphic */
+  .hero-graphic{
+    background:linear-gradient(135deg,#0f6b4c 0%,#0a4a35 100%);
+    padding:0;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-graphic svg{display:block;width:100%;height:auto;}
+
+  /* Curriculum */
+  .curriculum{
+    margin-bottom:22px;
+  }
+  .curriculum h3{
+    font-size:14px;
+    font-family:'Helvetica Neue',Arial,sans-serif;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:var(--accent);
+    margin-bottom:12px;
+  }
+  .module{
+    display:flex;
+    gap:12px;
+    padding:10px 0;
+    border-bottom:1px solid #eee5d0;
+  }
+  .module:last-child{border-bottom:none;}
+  .module .icon{
+    width:34px;height:34px;flex-shrink:0;
+    border-radius:50%;
+    background:var(--accent-soft);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .module .icon svg{width:18px;height:18px;}
+  .module .text{font-family:'Helvetica Neue',Arial,sans-serif;}
+  .module .text .m-title{font-size:14px;font-weight:bold;color:var(--ink);}
+  .module .text .m-desc{font-size:12.5px;color:#6c7a73;margin-top:2px;}
+
+  /* Badge / seal */
+  .seal-row{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    background:#fbf8f0;
+    border:1px dashed var(--line);
+    border-radius:6px;
+    padding:14px 16px;
+    margin-bottom:22px;
+  }
+  .seal-row svg{width:46px;height:46px;flex-shrink:0;}
+  .seal-row .seal-text{font-family:'Helvetica Neue',Arial,sans-serif;}
+  .seal-row .seal-text strong{display:block;font-size:13px;color:var(--ink);}
+  .seal-row .seal-text span{font-size:11.5px;color:#8a8270;}
+
+  /* Stat strip */
+  .stat-strip{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin-bottom:22px;
+  }
+  .stat{
+    text-align:center;
+    background:#fbf8f0;
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:12px 8px;
+  }
+  .stat .num{
+    font-size:20px;
+    font-weight:bold;
+    color:var(--accent);
+    font-family:'Helvetica Neue',Arial,sans-serif;
+  }
+  .stat .lbl{
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    color:#8a8270;
+    font-family:'Helvetica Neue',Arial,sans-serif;
+    margin-top:2px;
+  }
+
+  @media (max-width:480px){
+    .grid{grid-template-columns:1fr;}
+    .band h1{font-size:19px;}
+    .amount-main{font-size:26px;}
+    .stat-strip{grid-template-columns:1fr 1fr 1fr;gap:6px;}
+    .stat .num{font-size:16px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+  <div class="band">
+    <div class="eyebrow">Fee Notice</div>
+    <h1>Cloud Computing Workshop &amp; Examination</h1>
+    <div class="meta">Issued for the attention of the Parent / Sponsor</div>
+  </div>
+
+  <div class="hero-graphic">
+    <svg viewBox="0 0 640 140" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="glow" cx="50%" cy="0%" r="80%">
+          <stop offset="0%" stop-color="#1d8a63" stop-opacity="0.6"/>
+          <stop offset="100%" stop-color="#0a4a35" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="640" height="140" fill="url(#glow)"/>
+      <g stroke="#bfe7d4" stroke-width="1" opacity="0.5">
+        <line x1="60" y1="100" x2="160" y2="50"/>
+        <line x1="160" y1="50" x2="270" y2="80"/>
+        <line x1="270" y1="80" x2="380" y2="40"/>
+        <line x1="380" y1="40" x2="480" y2="90"/>
+        <line x1="480" y1="90" x2="580" y2="55"/>
+        <line x1="160" y1="50" x2="270" y2="20"/>
+        <line x1="380" y1="40" x2="300" y2="100"/>
+      </g>
+      <g fill="#eafff2">
+        <circle cx="60" cy="100" r="5"/>
+        <circle cx="160" cy="50" r="6"/>
+        <circle cx="270" cy="80" r="5"/>
+        <circle cx="270" cy="20" r="4"/>
+        <circle cx="380" cy="40" r="6"/>
+        <circle cx="480" cy="90" r="5"/>
+        <circle cx="580" cy="55" r="6"/>
+        <circle cx="300" cy="100" r="4"/>
+      </g>
+      <g transform="translate(255,55)" fill="#ffffff">
+        <path d="M20 38c-9 0-16-7-16-15 0-7 5-13 12-15 2-9 10-15 19-15 9 0 17 6 19 14 8 1 14 8 14 16 0 9-7 16-16 16H20z"/>
+      </g>
+      <text x="320" y="125" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="11" fill="#bfe7d4" letter-spacing="2">CLOUD COMPUTING · TECHVIGO GH</text>
+    </svg>
+  </div>
+
+  <div class="body">
+    <div class="institution">
+      Training Provider
+      <strong>Techvigo Gh</strong>
+    </div>
+
+    <div class="grid">
+      <div class="field">
+        <label>Ward's Name</label>
+        <div class="val">Kwofie Essuman Eugene</div>
+      </div>
+      <div class="field">
+        <label>Parent's Name</label>
+        <div class="val">Anthony Kwofie</div>
+      </div>
+      <div class="field">
+        <label>Index Number</label>
+        <div class="val">1701165388</div>
+      </div>
+      <div class="field">
+        <label>Ward's Email</label>
+        <div class="val">kwofieeugene19@gmail.com</div>
+      </div>
+      <div class="field full">
+        <label>Institution</label>
+        <div class="val">Ghana Communication Technology University</div>
+      </div>
+    </div>
+
+    <div class="course-block">
+      <div class="label">Programme</div>
+      <div class="name">Cloud Computing Workshop</div>
+      <div class="sub">Includes course materials and final examination fee</div>
+    </div>
+
+    <div class="stat-strip">
+      <div class="stat">
+        <div class="num">6</div>
+        <div class="lbl">Weeks</div>
+      </div>
+      <div class="stat">
+        <div class="num">5</div>
+        <div class="lbl">Modules</div>
+      </div>
+      <div class="stat">
+        <div class="num">1</div>
+        <div class="lbl">Final Exam</div>
+      </div>
+    </div>
+
+    <div class="curriculum">
+      <h3>Programme Outline</h3>
+
+      <div class="module">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0f6b4c" stroke-width="2"><path d="M3 17a4 4 0 014-4h1a4 4 0 014 4M14 13a4 4 0 014-4h0a4 4 0 014 4"/><circle cx="8" cy="9" r="3"/><circle cx="18" cy="7" r="2.5"/></svg>
+        </div>
+        <div class="text">
+          <div class="m-title">Cloud Fundamentals</div>
+          <div class="m-desc">Core concepts, service models (IaaS, PaaS, SaaS) and deployment models.</div>
+        </div>
+      </div>
+
+      <div class="module">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0f6b4c" stroke-width="2"><rect x="3" y="4" width="18" height="6" rx="1"/><rect x="3" y="14" width="18" height="6" rx="1"/><circle cx="7" cy="7" r="0.8" fill="#0f6b4c"/><circle cx="7" cy="17" r="0.8" fill="#0f6b4c"/></svg>
+        </div>
+        <div class="text">
+          <div class="m-title">Compute &amp; Storage Services</div>
+          <div class="m-desc">Provisioning virtual machines, object storage and scalable databases.</div>
+        </div>
+      </div>
+
+      <div class="module">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0f6b4c" stroke-width="2"><path d="M12 2l3 5h-6l3-5z"/><circle cx="12" cy="14" r="6"/></svg>
+        </div>
+        <div class="text">
+          <div class="m-title">Networking &amp; Security</div>
+          <div class="m-desc">Virtual networks, access control, identity management and best practices.</div>
+        </div>
+      </div>
+
+      <div class="module">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0f6b4c" stroke-width="2"><path d="M4 17l4-4 4 4 8-8"/><path d="M16 9h4v4"/></svg>
+        </div>
+        <div class="text">
+          <div class="m-title">DevOps &amp; Automation</div>
+          <div class="m-desc">CI/CD pipelines, infrastructure as code, and monitoring fundamentals.</div>
+        </div>
+      </div>
+
+      <div class="module">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0f6b4c" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+        </div>
+        <div class="text">
+          <div class="m-title">Capstone Project &amp; Final Exam</div>
+          <div class="m-desc">Applied project review followed by the certification examination.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="seal-row">
+      <svg viewBox="0 0 64 64" fill="none">
+        <circle cx="32" cy="32" r="28" fill="#dcecdf" stroke="#0f6b4c" stroke-width="2"/>
+        <path d="M20 33l8 8 16-16" stroke="#0f6b4c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="seal-text">
+        <strong>Certificate of Completion</strong>
+        <span>Awarded jointly by Techvigo Gh and GCTU upon passing the final examination.</span>
+      </div>
+    </div>
+
+    <div class="amount-row">
+      <div>
+        <div class="amount-label">Amount Due</div>
+        <div class="amount-main">GHS 1,934.99</div>
+      </div>
+      <div class="amount-sub">≈ USD 172.77*</div>
+    </div>
+
+    <div class="due">
+      <span class="dot"></span>
+      <div class="due-text">Payment due by <strong>Thursday, July 2, 2026</strong> — ahead of the upcoming holiday break.</div>
+    </div>
+
+    <div class="payment">
+      <h3>Mode of Payment</h3>
+      <p>Payable via <strong>CBG (Consolidated Bank Ghana)</strong>, to the official Techvigo Gh / GCTU collections channel.</p>
+      <p>Please confirm exact account name, account number, or mobile money details directly with the institution before transferring, to ensure funds reach the correct recipient.</p>
+    </div>
+
+    <div class="note">*USD figure is an approximate conversion for reference only, based on prevailing exchange rates, and is not a fixed or guaranteed amount. Final payment should be made in GHS unless the institution specifies otherwise.</div>
+  </div>
+</div>
+
+<footer>Cloud Computing Workshop &amp; Examination · Techvigo Gh in partnership with GCTU</footer>
+
+</body>
+</html>
